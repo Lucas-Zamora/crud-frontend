@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=devide-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" re l="stylesheet">
+  <!-- Link para pegar o estilo CSS dos servidores do Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href="css/style.css" rel="stylesheet">
+
+  <base href="/">
+
+  <link rel="sortcut icon" href="imagens/balance-symbol.png" type="image/x-icon" />;
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['08:00-12:30', 11],
+        ['12:31-15:30', 2],
+        ['15:31-18:30', 2],
+        ['18:31-21:30', 2],
+        ['21:31-00:30', 7]
+      ]);
+
+      var options = {
+        title: 'Horarios mais movimentados'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+      chart.draw(data, options);
+    }
+  </script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Ano', 'Público', 'Privado'],
+        ['2008', 1000, 400],
+        ['2010', 1170, 460],
+        ['2012', 660, 1120],
+        ['2015', 1030, 540],
+        ['2021', 1030, 450]
+      ]);
+
+      var options = {
+        title: 'Transporte Público x Privado',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+      chart.draw(data, options);
+    }
+  </script>
+  <title>Smart Cities</title>
+</head>
+
+<body>
+  <!--Menu-->
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="tamanho-imagem-navbar"
+            src="imagens/City_41017-removebg-preview.png" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active text-dark" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/cadastro">Formulario</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!--/Menu-->
+
+  <!--Carousel-->
+  <main>
+    <section id="carossel vh-100">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="imagens/shutterstock_1499306735.jpg" class="d-block w-100 imagem-carousel"
+              alt="imagem smart cities 1">
+          </div>
+          <div class="carousel-caption h-50">
+            <h1 class="fonte-titulo display-5">Smart Cities</h1>
+          </div>
+        </div>
+    </section>
+    <!--/Carousel-->
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4"> </h1>
+      </div>
+    </div>
+
+    <!--Table-->
+    <div style="overflow-x:auto;">
+      <table class="table table-striped m-0">
+        <thead>
+          <a href="/cadastro" class="btn btn-primary m-1">Cadastrar</a>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Data de Nascimento</th>
+            <th scope="col">Tipo do Transporte</th>
+            <th scope="col">Nome da Empresa</th>
+            <th scope="col">Locomação</th>
+            <th scope="col">Endereço Completo</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tBody">
+
+        </tbody>
+      </table>
+    </div>
+    <!--/Table-->
+  </main>
+
+  <br>
+
+  <div class="container-fluid">
+    <div id="piechart"></div>
+    <div id="curve_chart"></div>
+  </div>
+
+  <hr>
+
+  <footer>
+    <div class="container-fluid">
+      <p class="text-center">
+        Todos os direitos reservados: Lucas Zamora &copy
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/tabela_cadastros.js"></script>
+
+</body>
+
+</html>
